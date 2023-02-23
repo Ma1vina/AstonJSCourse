@@ -1,16 +1,22 @@
-function createLiker() {
-  let count = 0;
+function createPerson({ name = 'new User', skills = [] }) {
   return {
-    like() {
-      count++;
+    name,
+    skills,
+    addSkill(skill) {
+      if (!this.skills.includes(skill)) {
+        this.skills.push(skill);
+      }
       return this;
     },
-    dislike() {
-      count--;
+    removeSkill(skill) {
+      this.skills = this.skills.filter((val) => val !== skill);
       return this;
     },
-    val() {
-      return count;
+    addName(newName) {
+      this.name = newName;
+      return this;
     },
   };
-}
+};
+
+

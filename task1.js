@@ -1,27 +1,16 @@
-function deepCopyObject(obj) {
-  if (obj) {
-    if (isArr(obj)) {
-      return obj.map((elem) => {
-        return deepCopyObject(elem);
-      });
-    }
-    if (isObj(obj)) {
-      let copyObj = {};
-      for (let key in obj) {
-        copyObj[key] = deepCopyObject(obj[key]);
-      }
-      return copyObj;
-    }
+const deleteElementFromArray = (arr, elem) => {
+  if (checkElemInArr(arr,elem)) {
+    const indexElem = arr.indexOf(elem);
+     const arrFiltered = arr.filter((el,i) =>{
+             return i !== indexElem;   
+    });
+    return arrFiltered;
   }
-  return obj;
-}
+  return arr;
 
-function isObj(obj) {
-  return typeof obj === 'object' && obj != null;
-}
-
-function isArr(obj) {
-  return Array.isArray(obj);
-}
-
+  function checkElemInArr(arr,elem) {
+    const result = arr.some((el) => el == elem);
+    return result;
+  }
+};
 
