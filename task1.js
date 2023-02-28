@@ -14,14 +14,12 @@ function deepCopyObject(obj) {
     }
   }
   return obj;
-}
 
 function isObj(obj) {
-  return typeof obj === 'object' && obj != null;
-}
+  return typeof obj === 'object' && obj !== null && typeof obj !== 'function';
+ }
 
 function isArr(obj) {
   return Array.isArray(obj);
+ }
 }
-
-

@@ -8,10 +8,9 @@ const getUniqArray = (arr) => {
     });
   }
   throw new Error(ERROR_PARAM_ARR);
-};
 
 function isDigits(arr) {
-  let res = arr.every((elem) => typeof elem === 'number');
+  let res = arr.every((elem) => typeof elem === 'number' && !Number.isNaN(elem));
   return res;
 }
-
+};

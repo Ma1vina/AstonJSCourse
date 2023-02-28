@@ -9,17 +9,16 @@ function getInterval(arr, from, to) {
   if (!isDigits(arr)) {
     throw new Error(ERROR_PARAMS_ARR);
   }
-  if (typeof from !== 'number') {
+  if (typeof from !== 'number' && Number.isNaN(from)) {
     throw new Error(ERROR_PARAM_FROM);
   }
-  if (typeof to !== 'number') {
+  if (typeof to !== 'number' && Number.isNaN(to)) {
     throw new Error(ERROR_PARAM_TO);
   }
   return getFromTo(arr, from, to);
-}
 
 function isDigits(arr) {
-  let res = arr.every((elem) => typeof elem === 'number');
+  let res = arr.every((elem) => typeof elem === 'number' && !Number.isNaN(elem));
   return res;
 }
 
@@ -32,3 +31,4 @@ function getFromTo(arr, from, to) {
   });
   return result;
 }
+};
