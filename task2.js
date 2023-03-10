@@ -15,7 +15,7 @@ const addElementsToArray = (arr, index) => {
 
   function isValidIndex(index) {
     return (
-      (index >= 0 && Number.isInteger(index) && typeof index === 'number') ||
+      (index >= 0 && Number.isInteger(index) && typeof index === 'number' && !Number.isNaN(index)) ||
       index === undefined
     );
   }
